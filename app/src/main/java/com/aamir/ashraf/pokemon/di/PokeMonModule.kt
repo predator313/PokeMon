@@ -9,6 +9,7 @@ import com.aamir.ashraf.pokemon.feature_pokemon.data.remote.RetrofitInstance
 import com.aamir.ashraf.pokemon.feature_pokemon.data.repository.PokeMonRepositoryImpl
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.repository.PokeMonRepository
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.use_case.GetAllPokeMon
+import com.aamir.ashraf.pokemon.feature_pokemon.domain.use_case.GetPokeMonDetail
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.use_case.GetPokeMonUseCase
 import com.aamir.ashraf.pokemon.utils.DB_NAME
 import dagger.Module
@@ -51,7 +52,9 @@ object PokeMonModule {
     @Singleton
     @Provides
     fun providePokeMonUseCase(pokeMonRepository: PokeMonRepository):GetPokeMonUseCase{
-        return GetPokeMonUseCase(getAllPokeMon = GetAllPokeMon(pokeMonRepository))
+        return GetPokeMonUseCase(getAllPokeMon = GetAllPokeMon(pokeMonRepository),
+            getPokeMonDetail = GetPokeMonDetail(pokeMonRepository)
+        )
 
     }
 

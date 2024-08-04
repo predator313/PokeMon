@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.aamir.ashraf.pokemon.feature_pokemon.data.local.PokeMonDao
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.model.MainScreenModel
 import com.aamir.ashraf.pokemon.feature_pokemon.presentation.PokeMonViewModel
 import com.aamir.ashraf.pokemon.feature_pokemon.presentation.components.PokeMonList
@@ -97,6 +98,7 @@ fun MainScreen(
                     modifier = Modifier.align(Alignment.Center)
                 ) {
                     Button(onClick = {
+                       
                         Log.e("aamir","main screen list ${pokeMonMainScreenList.size}")
                         if(pokeMonMainScreenList.isEmpty() && !isNetworkAvailable(context)){
                             Toast.makeText(context,"please check your internet", Toast.LENGTH_SHORT).show()

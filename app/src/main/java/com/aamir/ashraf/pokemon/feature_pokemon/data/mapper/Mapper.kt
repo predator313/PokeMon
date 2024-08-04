@@ -5,6 +5,7 @@ import com.aamir.ashraf.pokemon.feature_pokemon.data.local.entity.PokeMonEntity
 import com.aamir.ashraf.pokemon.feature_pokemon.data.remote.dto.PokeMon
 import com.aamir.ashraf.pokemon.feature_pokemon.data.remote.dto.PokeMonDetailsDto
 import com.aamir.ashraf.pokemon.feature_pokemon.data.remote.dto.PokeMonDto
+import com.aamir.ashraf.pokemon.feature_pokemon.domain.model.DetailScreenModel
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.model.MainScreenModel
 
 fun PokeMonEntity.toPokeMonDto():PokeMonDto{
@@ -48,5 +49,18 @@ fun PokeMon.toMainScreenModel():MainScreenModel{
     return MainScreenModel(
         name = name,
         url = url
+    )
+}
+
+fun PokeMonDetailsDto.toDetailScreenModel():DetailScreenModel{
+    return DetailScreenModel(
+        id = id,
+        baseExperience = baseExperience,
+        height = height,
+        isDefault = isDefault,
+        name = name,
+        order = order,
+        weight = weight,
+        abilities = abilities
     )
 }

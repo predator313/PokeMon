@@ -19,3 +19,8 @@ fun isNetworkAvailable(context: Context): Boolean {
         return networkInfo.isConnected
     }
 }
+
+fun extractPokemonIdFromUrl(url: String): Int? {
+    val regex = """pokemon/(\d+)/""".toRegex()
+    return regex.find(url)?.groups?.get(1)?.value?.toInt()
+}

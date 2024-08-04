@@ -3,6 +3,7 @@ package com.aamir.ashraf.pokemon.feature_pokemon.presentation.components
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import com.aamir.ashraf.pokemon.feature_pokemon.domain.model.DetailScreenModel
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.model.MainScreenModel
 
 @Composable
@@ -13,5 +14,15 @@ fun PokeMonList(pokeMons: List<MainScreenModel>,onPokeMonClicked: (MainScreenMod
 
         }
     }
+
+}
+
+@Composable
+fun PokeMonDetail(pokeMon: DetailScreenModel){
+
+    PokeMonDetailCard(detailScreenModel = pokeMon)
+
+
+
 
 }

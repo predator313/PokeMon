@@ -8,7 +8,8 @@ import com.aamir.ashraf.pokemon.feature_pokemon.data.local.entity.PokeMonEntity
 
 @Database(
     entities = [PokeMonDetailsEntity::class,PokeMonEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 @TypeConverters(PokeMonConverters::class)
 abstract class PokeMonDataBase: RoomDatabase() {

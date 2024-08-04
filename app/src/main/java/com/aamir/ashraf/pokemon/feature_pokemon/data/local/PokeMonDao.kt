@@ -14,8 +14,11 @@ interface PokeMonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPokeMonDetails(pokeMonDetailsEntity: PokeMonDetailsEntity)
 
-    @Query("select * from PokeMonEntity")
-    suspend fun getListOfPokeMons():PokeMonEntity
+//    @Query("select * from PokeMonEntity")
+//    suspend fun getListOfPokeMons():PokeMonEntity
+@Query("SELECT * FROM PokeMonEntity LIMIT 1")
+suspend fun getListOfPokeMons(): PokeMonEntity
+
     @Query("select * from PokeMonDetailsEntity where id = :id")
     suspend fun getPokeMonDetails(id:Int):PokeMonDetailsEntity
 

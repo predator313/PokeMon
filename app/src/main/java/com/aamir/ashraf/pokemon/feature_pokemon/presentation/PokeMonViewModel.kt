@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aamir.ashraf.pokemon.feature_pokemon.data.mapper.toMainScreenModel
+import com.aamir.ashraf.pokemon.feature_pokemon.data.remote.dto.PokeMonDetailsDto
 import com.aamir.ashraf.pokemon.feature_pokemon.data.remote.dto.PokeMonDto
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.model.MainScreenModel
 import com.aamir.ashraf.pokemon.feature_pokemon.domain.use_case.GetPokeMonUseCase
@@ -47,5 +48,21 @@ class PokeMonViewModel @Inject constructor(
             }
         }
     }
+
+    //details screen
+
+    private val _getPokeMonDetailStateById = MutableStateFlow<Resource<PokeMonDetailsDto>>(Resource.Loading())
+    val getPokeMonDetailStateById:StateFlow<Resource<PokeMonDetailsDto>> = _getPokeMonDetailStateById
+
+    fun getPokeMonDetailsById(id:Int){
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO){
+                getPokeMonUseCase.getPokeMonDetail(id)
+
+            }
+            _getPokeMonDetailStateById.value = result
+        }
+    }
+
 
 }
